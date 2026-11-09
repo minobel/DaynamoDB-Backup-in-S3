@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadDemoUsers",
+      "Effect": "Allow",
+      "Action": "dynamodb:Scan",
+      "Resource": "arn:aws:dynamodb:us-west-2:175707981530:table/jsonplaceholder-users1"
+    },
+    {
+      "Sid": "WriteTimestampedJsonBackups",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::nobel-devops-backups-2026/backups/*"
+    }
+  ]
+}
