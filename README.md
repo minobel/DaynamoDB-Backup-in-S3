@@ -148,12 +148,12 @@ aws-serverless-dynamodb-backup-pipeline/
         
     -   Stored records in DynamoDB using `table.put_item(Item=user)`.
         
-    -   🔗 _[View Execution Output Evidence](https://www.google.com/search?q=%2302-lambda-import-success)_
+    -   🔗 _[View Execution Output Evidence](https://github.com/minobel/DaynamoDB-Backup-in-S3/blob/main/screenshots/02-lambda-import-success.png)_
         
 
 ### PART C — Lambda #2: Data Extraction & S3 Backup
 
-1.  **Lambda #2 Creation (`export-dynamodb-to-s3`):**
+1.  **Lambda #2 Creation (`export-dynamodb-toS3`):**
     
     -   Runtime: Python 3.12 | RAM: 128 MB | Timeout: 30 seconds.
         
@@ -161,15 +161,15 @@ aws-serverless-dynamodb-backup-pipeline/
     
     -   Attached policy (`AllowDynamoDBJsonBackup`) scoped strictly to:
         
-        -   `dynamodb:Scan` on table `jsonplaceholder-users`.
+        -   `dynamodb:Scan` on table `jsonplaceholder-users1`.
             
         -   `s3:PutObject` on resource `arn:aws:s3:::YOUR-BUCKET-NAME/backups/*`.
             
 3.  **Environment Variables Configuration:**
     
-    -   `TABLE_NAME` = `jsonplaceholder-users`
+    -   `TABLE_NAME` = `jsonplaceholder-users1`
         
-    -   `BUCKET_NAME` = `your-actual-s3-bucket-name`
+    -   `BUCKET_NAME` = `nobel-devops-backups-2026`
         
     -   `BACKUP_PREFIX` = `backups`
         
