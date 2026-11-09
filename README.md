@@ -103,7 +103,7 @@ aws-serverless-dynamodb-backup-pipeline/
 
 1.  **AWS Region Standardisation:**
     
-    -   Configured all resources within a single AWS Region (`us-east-1` / N. Virginia) to eliminate cross-region latency and billing complications.
+    -   Configured all resources within a single AWS Region (`us-west-2` / Oregon) to eliminate cross-region latency and billing complications.
         
 2.  **DynamoDB Table Setup (`jsonplaceholder-users`):**
     
@@ -136,7 +136,7 @@ aws-serverless-dynamodb-backup-pipeline/
         
 3.  **Environment Configuration & Deployment:**
     
-    -   Set Environment Variable:  `TABLE_NAME = jsonplaceholder-users`.
+    -   Set Environment Variable:  `TABLE_NAME = jsonplaceholder-users1`.
         
     -   Uploaded `lambda_zips/lambda-import-users.zip` containing `lambda_function.py`.
         
