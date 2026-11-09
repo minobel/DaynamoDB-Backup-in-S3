@@ -111,7 +111,7 @@ aws-serverless-dynamodb-backup-pipeline/
         
     -   Configured read/write capacity mode to **On-Demand** to automatically handle spikes without manual scaling.
         
-    -   🔗 _[View DynamoDB Table Setup Evidence](https://www.google.com/search?q=%2301-dynamodb-table-active)_
+    -   🔗 _[View DynamoDB Table Setup Evidence](https://github.com/minobel/DaynamoDB-Backup-in-S3/blob/main/screenshots/01-dynamodb-table-active.png)_
         
 3.  **Private S3 Destination Bucket:**
     
