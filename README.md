@@ -105,9 +105,9 @@ aws-serverless-dynamodb-backup-pipeline/
     
     -   Configured all resources within a single AWS Region (`us-west-2` / Oregon) to eliminate cross-region latency and billing complications.
         
-2.  **DynamoDB Table Setup (`jsonplaceholder-users`):**
+2.  **DynamoDB Table Setup (`jsonplaceholder-users1`):**
     
-    -   Created table `jsonplaceholder-users` with Partition Key `id` set as **Number** (NOT String) to match API integer IDs.
+    -   Created table `jsonplaceholder-users1` with Partition Key `id` set as **Number** (NOT String) to match API integer IDs.
         
     -   Configured read/write capacity mode to **On-Demand** to automatically handle spikes without manual scaling.
         
@@ -124,7 +124,7 @@ aws-serverless-dynamodb-backup-pipeline/
 
 ### PART B — Lambda #1: REST API Ingestion to DynamoDB
 
-1.  **Lambda #1 Creation (`import-jsonplaceholder-users`):**
+1.  **Lambda #1 Creation (`import-jsonplaceholder-users1`):**
     
     -   Runtime: Python 3.12 | Architecture:  `x86_64`.
         
