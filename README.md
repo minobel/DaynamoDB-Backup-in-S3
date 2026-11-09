@@ -153,7 +153,7 @@ aws-serverless-dynamodb-backup-pipeline/
 
 ### PART C — Lambda #2: Data Extraction & S3 Backup
 
-1.  **Lambda #2 Creation (`export-dynamodb-toS3`):**
+1.  **Lambda #2 Creation (`export-dynamodb-tos3`):**
     
     -   Runtime: Python 3.12 | RAM: 128 MB | Timeout: 30 seconds.
         
@@ -186,13 +186,13 @@ aws-serverless-dynamodb-backup-pipeline/
 
 1.  **Cron Automation Setup:**
     
-    -   Created a recurring schedule `dynamodb-backup-every-2min` in EventBridge Scheduler.
+    -   Created a recurring schedule `dynamodb-backup-every2min` in EventBridge Scheduler.
         
     -   Set Schedule Pattern: Rate-based -> `rate(2 minutes)` with Flexible Time Window set to **Off**.
         
 2.  **Target & Delegation:**
     
-    -   Targeted Lambda #2 (`export-dynamodb-to-s3`).
+    -   Targeted Lambda #2 (`export-dynamodb-tos3`).
         
     -   Created a dedicated Scheduler Execution Role allowing EventBridge to invoke Lambda #2.
         
@@ -200,7 +200,7 @@ aws-serverless-dynamodb-backup-pipeline/
     
     -   Verified automated triggers creating distinct, timestamped JSON snapshots in S3 every 2 minutes.
         
-    -   🔗 _[View EventBridge Schedule Evidence](https://www.google.com/search?q=%2304-eventbridge-schedule)_ | 🔗 _[View S3 Automated Files Evidence](https://www.google.com/search?q=%2303-s3-backup-files)_
+    -   🔗 _[View EventBridge Schedule Evidence](https://github.com/minobel/DaynamoDB-Backup-in-S3/blob/main/screenshots/04-eventbridge-schedule.png)_ | 🔗 _[View S3 Automated Files Evidence](https://github.com/minobel/DaynamoDB-Backup-in-S3/blob/main/screenshots/03-s3-backup-files.png)_
         
 
 ## 🛠️ Common Errors, Root Cause & Troubleshooting Matrix
@@ -215,7 +215,7 @@ aws-serverless-dynamodb-backup-pipeline/
 
 Missing environment variable in Lambda configuration.
 
-Added `TABLE_NAME=jsonplaceholder-users` in Lambda -> Configuration -> Environment variables.
+Added `TABLE_NAME=jsonplaceholder-users1` in Lambda -> Configuration -> Environment variables.
 
 `AccessDeniedException` on `PutItem`
 
@@ -276,10 +276,10 @@ Active EventBridge schedule configured at `rate(2 minutes)` targeting the export
 
 To prevent unnecessary AWS billable usage:
 
-1.  Disabled and deleted schedule `dynamodb-backup-every-2min` in EventBridge.
+1.  Disabled and deleted schedule `dynamodb-backup-every2min` in EventBridge.
     
-2.  Deleted Lambda functions `import-jsonplaceholder-users` and `export-dynamodb-to-s3`.
+2.  Deleted Lambda functions `import-jsonplaceholder-users1` and `export-dynamodb-tos3`.
     
 3.  Emptied and deleted the destination S3 bucket.
     
-4.  Deleted table `jsonplaceholder-users` and associated custom IAM roles.
+4.  Deleted table `jsonplaceholder-users1` and associated custom IAM roles.
